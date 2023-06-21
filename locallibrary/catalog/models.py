@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+import uuid # Requerida para las instancias de libros únicos
 
 class MyModelName(models.Model):
     """
@@ -37,7 +38,6 @@ class Genre(models.Model):
         Cadena que representa a la instancia particular del modelo (p. ej. en el sitio de Administración)
         """
         return self.name
-    from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 
 class Book(models.Model):
     """
@@ -99,10 +99,11 @@ class BookInstance(models.Model):
         String para representar el Objeto del Modelo
         """
         return '%s (%s)' % (self.id,self.book.title)
-class Author(models.Model):
+    
+    class Author(models.Model):
+    """Modelo que representa un autor
     """
-    Modelo que representa un autor
-    """
+
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
