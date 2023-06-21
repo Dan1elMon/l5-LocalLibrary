@@ -101,8 +101,9 @@ class BookInstance(models.Model):
         return '%s (%s)' % (self.id,self.book.title)
     
     class Author(models.Model):
-    """Modelo que representa un autor
-    """
+        """
+        Modelo que representa un autor
+        """
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
